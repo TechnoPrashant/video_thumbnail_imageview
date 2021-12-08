@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore: avoid_relative_lib_imports
-import '../lib/video_url_thumbnail_imageview.dart';
+import '../lib/video_thumbnail_imageview.dart';
 
 void main() {
   runApp(MyApp());

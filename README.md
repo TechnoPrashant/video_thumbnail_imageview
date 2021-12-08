@@ -12,7 +12,7 @@ Add to pubspec.yaml.
 ```yaml
 dependencies:
   ...
-  video_url_thumbnail_imageview: ^0.0.1
+  video_thumbnail_imageview: ^0.0.1
 ```
 
 ### How to use.
