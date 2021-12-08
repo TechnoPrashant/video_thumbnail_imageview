@@ -12,22 +12,22 @@ Add to pubspec.yaml.
 ```yaml
 dependencies:
   ...
-  video_thumbnail_imageview: ^0.0.1
+  video_thumbnail_imageview: ^0.0.4
 ```
 
 ### How to use.
 
-import custom_gradient.dart
+import video_thumbnail_imageview.dart
 
 ```dart
-import 'package:video_thumbnail_imageview/src/vt_imageview.dart`';
+import 'package:video_thumbnail_imageview/video_thumbnail_imageview.dart`';
 ```
 
 ## Usage Example.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:video_thumbnail_generator/video_thumbnail_generator.dart';
+import 'package:video_thumbnail_imageview/video_thumbnail_imageview.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,18 +50,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Center(
-            child: ThumbnailImage(
+            child: VTImageView(
           videoUrl:
               "VIDEO URL",
-          width: 400,
-          height: 400,
+          width: 200.0,
+          height: 200.0,
           errorBuilder: (context, error, stack) {
             return Container(
-              width: 400.0,
-              height: 400.0,
+              width: 200.0,
+              height: 200.0,
               color: Colors.blue,
               child: Center(
-                child: Text("error loading Image"),
+                child: Text("Image Loading Error"),
               ),
             );
           },
