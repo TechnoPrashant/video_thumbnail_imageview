@@ -45,8 +45,10 @@ class VTImageView extends StatelessWidget {
   final FilterQuality filterQuality;
   final int? cacheWidth;
   final int? cacheHeight;
+  final String assetPlaceHolder;
 
-  const VTImageView({Key? key,
+  const VTImageView({
+    Key? key,
     required this.videoUrl,
     this.width,
     this.height,
@@ -67,7 +69,9 @@ class VTImageView extends StatelessWidget {
     this.filterQuality: FilterQuality.low,
     this.cacheHeight,
     this.cacheWidth,
-  }) : assert(videoUrl != null), super(key: key);
+    required this.assetPlaceHolder,
+  })  : assert(videoUrl != null),
+        super(key: key);
 
   Future<String> getThumbnailFromVideoUrl() async {
     String input = '{"videoUrl" : "$videoUrl"}';
@@ -95,7 +99,6 @@ class VTImageView extends StatelessWidget {
     return FutureBuilder<String>(
       future: getThumbnailFromVideoUrl(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        print(snapshot.connectionState);
         switch (snapshot.connectionState) {
           case ConnectionState.none:
           case ConnectionState.waiting:
@@ -103,8 +106,8 @@ class VTImageView extends StatelessWidget {
           case ConnectionState.active:
           case ConnectionState.done:
             if (snapshot.data == null) {
-              return Image.network(
-                "http://no_image",
+              return Image.asset(
+                assetPlaceHolder,
                 width: width,
                 height: height,
                 scale: scale,
@@ -154,4 +157,3 @@ class VTImageView extends StatelessWidget {
     );
   }
 }
-

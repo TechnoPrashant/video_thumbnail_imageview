@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // ignore: avoid_relative_lib_imports
 import '../lib/video_thumbnail_imageview.dart';
 
@@ -24,21 +25,21 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Center(
             child: VTImageView(
-              videoUrl:
-              "VIDEO URL",
+          assetPlaceHolder: 'assest/placeholder.png',
+          videoUrl: "VIDEO URL",
+          width: 200.0,
+          height: 200.0,
+          errorBuilder: (context, error, stack) {
+            return Container(
               width: 200.0,
               height: 200.0,
-              errorBuilder: (context, error, stack) {
-                return Container(
-                  width: 200.0,
-                  height: 200.0,
-                  color: Colors.green,
-                  child: const Center(
-                    child: Text("error loading Image"),
-                  ),
-                );
-              },
-            )),
+              color: Colors.green,
+              child: const Center(
+                child: Text("error loading Image"),
+              ),
+            );
+          },
+        )),
       ),
     );
   }
